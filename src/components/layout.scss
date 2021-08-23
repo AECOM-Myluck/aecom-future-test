@@ -91,7 +91,7 @@ body {
         height: 100vh;
         position: relative;
         overflow: hidden;
-        min-height: 1000px;
+        min-height: 900px;
 
         .gradient {
             position: absolute;
@@ -206,12 +206,56 @@ body {
 footer {
     background-color: #000;
     padding: 60px;
+    color: #cccc;
 
     .footer-container {
         width: fit-content;
         height: fit-content;
-        border: solid;
         margin: auto;
+
+        .copyright {
+            text-align: center;
+
+            p {
+                font-size: .75rem;
+                margin: 0;
+            }
+        }
+
+        ul.social-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: fit-content;
+            margin: 0;
+            padding: 0;
+            margin: auto;
+
+            li {
+                margin: 5px;
+                width: 30px;
+                height: 30px;
+                border: solid 1px #cccc;
+                border-radius: 50%;
+                &:hover {
+                    background-color: #00A3CC;
+                }
+
+                svg {
+                    margin: 8px 9px;
+                    color: #cccc;
+                    font-size: 14px;
+                }
+            }
+            
+            li:first-child {
+
+                svg {
+                    margin: 8px 11px;
+                }
+            }
+        }
     }
 }
 
