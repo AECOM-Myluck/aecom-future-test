@@ -6,11 +6,12 @@ import Fade from 'react-reveal/Fade';
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import ModularContentHome from "../components/modular-content-home"
-
+import Navigation from "../components/navigation";
 const IndexPage = ({data}) => (
   <Layout>
     <Seo title="Home" />
-    <div className="hero-home">
+    <Navigation modules={data.allMarkdownRemark.edges}/>
+    <div className="hero-home" id="section-hero-home">
       <div className="hero-home-container">
         <div className="logo">
           <a href=""><img src="../images/logo-white.png" /></a>

@@ -37,6 +37,64 @@ body {
     }
 }
 
+.navigation {
+    position: fixed;
+    top: 20vh;
+    right: 40px;
+    z-index: 999;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li.nav-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            margin: 10px 0;
+            cursor: pointer;
+
+            .nav-title {
+                background-color: #00A3CC;
+                color: #fff;
+                padding: 5px 10px;
+                margin-right: 10px;
+                height: 20px;
+                max-width: auto;
+                width: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: width .2s;
+            }
+
+            .nav-bullet {
+                width: 10px;
+                height: 10px;
+                background-color: #fff;
+                border-radius: 50%;
+                margin-top: 10px;
+            }
+
+            &:hover {
+
+                .nav-title {
+                    opacity: 1;
+                    width: 150px;
+                }
+            }
+
+            .active {
+
+
+                .nav-bullet {
+                    background-color: #00A3CC;
+                }
+            }
+        }
+    }
+}
+
 .hero-home {
     background-image: url('https://aecom.com/wp-content/uploads/2017/03/future-hero.jpg');
     height: 100vh;
