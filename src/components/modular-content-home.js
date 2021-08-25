@@ -1,12 +1,13 @@
 import * as React from "react"
 import { graphql  } from "gatsby"
 import Fade from 'react-reveal/Fade';
+import Img from "gatsby-image"
 
 const ModularContentHome = ({modules}) => (
     <div className="modular-content-home">
       {modules.map(post =>(
         <div key={post.node.id} className="modular-item" id={'section-'+post.node.id} style={{
-          backgroundImage: 'url(../images/'+post.node.frontmatter.bg_image+')'
+          backgroundImage: 'url('+post.node.frontmatter.bg_image.childImageSharp.gatsbyImageData.images.fallback.src+')'
         }}>
             <div className="gradient"></div>
               <div className="modular-absolute-container">
@@ -23,8 +24,9 @@ const ModularContentHome = ({modules}) => (
                     <Fade bottom>
                       <div className="author-details">
                           <div className="author-container">
+                          {/* <AuthorImage image={post.node.frontmatter.author.image}/> */}
                           <div className="author-image">
-                              <img src={'../images/'+post.node.frontmatter.author.image} />
+                              <Img fluid={post.node.frontmatter.author.featuredImage.childImageSharp.fluid} />
                           </div>
                           <div className="author-testimonial">
                               <p>{post.node.frontmatter.author.testimonials}</p>
@@ -40,32 +42,5 @@ const ModularContentHome = ({modules}) => (
       ))}
     </div>
 )
-
-export const pageQuery = graphql`
-    query {
-      allMarkdownRemark(
-        sort: {fields: frontmatter___menu_order, order: ASC}
-        filter: {frontmatter: {type: {eq: "home-page-section"}}}
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              sub_title
-              description
-              bg_image
-              menu_order
-              author {
-                image
-                name
-                position
-                testimonials
-              }
-            }
-          }
-        }
-      }
-    }
-`
 
 export default ModularContentHome

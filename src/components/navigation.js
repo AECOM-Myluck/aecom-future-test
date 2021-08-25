@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "react-scroll"
-const Navigation = ({modules}) => (
+const SideNavigation = ({modules}) => (
     <div className="navigation">
       <ul>
       <li className="nav-item">
@@ -21,4 +21,4 @@ const Navigation = ({modules}) => (
     </div>
 )
 
-export default Navigation
+export default SideNavigation

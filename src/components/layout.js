@@ -7,7 +7,6 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, 
@@ -17,7 +16,6 @@ import { faFacebookF,
   faYoutubeSquare
 } from '@fortawesome/free-brands-svg-icons'
 
-import Header from "./header"
 import "./layout.scss"
 
 const Layout = ({ children }) => {

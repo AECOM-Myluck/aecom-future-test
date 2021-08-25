@@ -1,16 +1,15 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
+import { graphql } from "gatsby"
 import Fade from 'react-reveal/Fade';
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import ModularContentHome from "../components/modular-content-home"
-import Navigation from "../components/navigation";
+import SideNavigation from "../components/navigation";
+
 const IndexPage = ({data}) => (
   <Layout>
     <Seo title="Home" />
-    <Navigation modules={data.allMarkdownRemark.edges}/>
+    <SideNavigation modules={data.allMarkdownRemark.edges}/>
     <div className="hero-home" id="section-hero-home">
       <div className="hero-home-container">
         <div className="logo">
@@ -45,7 +44,7 @@ const IndexPage = ({data}) => (
 )
 
 export const pageQuery = graphql`
-    query BlogIndexQuery {
+    query {
       allMarkdownRemark(
         sort: {fields: frontmatter___menu_order, order: ASC}
         filter: {frontmatter: {type: {eq: "home-page-section"}}}
@@ -57,13 +56,23 @@ export const pageQuery = graphql`
               title
               sub_title
               description
-              bg_image
               menu_order
+              bg_image {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
               author {
-                image
                 name
                 position
                 testimonials
+                featuredImage {
+                  childImageSharp {
+                    fluid(maxWidth: 200) {
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
+                  }
+                }
               }
             }
           }
