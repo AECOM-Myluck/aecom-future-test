@@ -5,6 +5,7 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
+  pathPrefix: `/future`,
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
